@@ -817,12 +817,27 @@ body {
   <div class="email-section">
     <p class="email-headline">Get Notified at Launch</p>
     <p class="email-sub">+ receive an exclusive wallpaper pack free</p>
-    <form id="sib-form" method="POST" action="https://aed6858a.sibforms.com/serve/MUIFAEdC0sBoxl1hHK25dEgAIcmPAFeWhGVGu0CGOFOT19I_NEubg-7X5sAgGLm3ubFgjip5EFzZit1-e5jxJJatFGlJ-4UxeBlNEmXsT5ZGK6nbQ4fo2E1cWw3pigRQXfKbgpG7fk0rLCITD-fQ0xj-vWoqf9n3E81ewC-6ygus3eXYmE0z69GjOM40W_GQQTw1v41FVaUDEf5lIQ==" data-type="subscription" style="display:flex;gap:0;width:100%;box-shadow:0 0 40px rgba(139,0,0,0.3);">
-      <input class="email-input input" type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="Enter your email address..." data-required="true" required style="flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(201,168,76,0.4);border-right:none;color:#F5EDD8;font-family:'EB Garamond',serif;font-size:16px;padding:14px 18px;outline:none;">
-      <input type="text" name="email_address_check" value="" style="display:none;">
-      <input type="hidden" name="locale" value="en">
-      <button type="submit" class="email-btn sib-form-block__button" style="background:#8B0000;border:1px solid #8B0000;color:#fff;font-family:'Cinzel',serif;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;padding:14px 28px;cursor:pointer;white-space:nowrap;">Notify Me</button>
-    </form>
+    <div class="brevo-form-wrap" id="form1-wrap">
+      <div class="brevo-form-wrap" id="form2-wrap">
+      <div class="email-form">
+        <input class="email-input" type="email" id="form2-email" placeholder="Enter your email address..." required>
+        <input type="hidden" id="form2-check" name="email_address_check" value="">
+        <button class="email-btn" type="button" onclick="submitBrevo('form2')">Notify Me</button>
+      </div>
+      <div id="form2-success" style="display:none;text-align:center;padding:14px;color:#c9a84c;font-family:'Cinzel',serif;font-size:13px;letter-spacing:0.2em;">
+        ✦ YOU'RE ON THE LIST ✦
+      </div>
+      <div id="form2-error" style="display:none;text-align:center;padding:10px;color:#ff6b6b;font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.1em;">
+        Something went wrong. Please try again.
+      </div>
+    </div>
+      <div id="form1-success" style="display:none;text-align:center;padding:14px;color:#c9a84c;font-family:'Cinzel',serif;font-size:13px;letter-spacing:0.2em;">
+        ✦ YOU'RE ON THE LIST ✦
+      </div>
+      <div id="form1-error" style="display:none;text-align:center;padding:10px;color:#ff6b6b;font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.1em;">
+        Something went wrong. Please try again.
+      </div>
+    </div>
     <p class="email-privacy">No spam. Unsubscribe anytime.</p>
   </div>
 
@@ -941,6 +956,51 @@ function handleSignup(e) {
   btn.disabled = true;
 }
 </script>
-<script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+
+<script>
+function submitBrevo(formId) {
+  var emailInput = document.getElementById(formId + '-email');
+  var email = emailInput.value.trim();
+  var successEl = document.getElementById(formId + '-success');
+  var errorEl = document.getElementById(formId + '-error');
+  var wrapEl = document.getElementById(formId + '-wrap');
+
+  // Validate
+  if (!email || !/^[^@]+@[^@]+\.[^@]+$/.test(email)) {
+    emailInput.style.borderColor = '#C41230';
+    emailInput.placeholder = 'Please enter a valid email';
+    setTimeout(function() {
+      emailInput.style.borderColor = '';
+      emailInput.placeholder = 'Enter your email address...';
+    }, 2500);
+    return;
+  }
+
+  // Build form data
+  var formData = new FormData();
+  formData.append('EMAIL', email);
+  formData.append('email_address_check', '');
+  formData.append('locale', 'en');
+
+  var btn = wrapEl.querySelector('.email-btn');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  fetch('https://aed6858a.sibforms.com/serve/MUIFAEdC0sBoxl1hHK25dEgAIcmPAFeWhGVGu0CGOFOT19I_NEubg-7X5sAgGLm3ubFgjip5EFzZit1-e5jxJJatFGlJ-4UxeBlNEmXsT5ZGK6nbQ4fo2E1cWw3pigRQXfKbgpG7fk0rLCITD-fQ0xj-vWoqf9n3E81ewC-6ygus3eXYmE0z69GjOM40W_GQQTw1v41FVaUDEf5lIQ==', {
+    method: 'POST',
+    body: formData,
+    mode: 'no-cors'
+  }).then(function() {
+    // no-cors means we can't read response, but submission goes through
+    wrapEl.querySelector('.email-form').style.display = 'none';
+    successEl.style.display = 'block';
+  }).catch(function() {
+    btn.textContent = 'Notify Me';
+    btn.disabled = false;
+    errorEl.style.display = 'block';
+    setTimeout(function() { errorEl.style.display = 'none'; }, 3000);
+  });
+}
+</script>
 </body>
 </html>
