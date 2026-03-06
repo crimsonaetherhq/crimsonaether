@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prologue — Crimson Aether</title>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://crimsonaether.com/prologue">
+<meta property="og:title" content="Prologue — Crimson Aether">
+<meta property="og:description" content="Read the prologue of Crimson Aether — a dark fantasy manga.">
+<meta property="og:image" content="https://crimsonaether.com/crimson-aether-og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@finalfAIntasy">
+<meta name="twitter:title" content="Prologue — Crimson Aether">
+<meta name="twitter:description" content="Read the prologue of Crimson Aether — a dark fantasy manga.">
+<meta name="twitter:image" content="https://crimsonaether.com/crimson-aether-og.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --crimson: #8B0000;
+    --crimson-bright: #C41230;
+    --gold: #C9A84C;
+    --gold-light: #F0D080;
+    --black: #080606;
+    --white: #ffffff;
+    --parchment: #f5edd8;
+    --fog: #8a7a72;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--black);
+    color: var(--parchment);
+    font-family: 'EB Garamond', serif;
+    min-height: 100vh;
+  }
+
+  /* ── TOP NAV ── */
+  .top-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 32px;
+    background: linear-gradient(to bottom, rgba(8,6,6,0.95) 0%, rgba(8,6,6,0.0) 100%);
+    pointer-events: none;
+  }
+
+  .back-link {
+    pointer-events: all;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--fog);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover { color: var(--gold); }
+
+  .back-link svg {
+    width: 14px; height: 14px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+  }
+
+  .nav-logo {
+    pointer-events: all;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+    text-shadow: 2px 2px 0 rgba(139,0,0,0.8);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    padding: 110px 20px 48px;
+    text-align: center;
+    position: relative;
+  }
+
+  .page-header::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--crimson), transparent);
+    margin: 32px auto 0;
+  }
+
+  .header-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: var(--crimson-bright);
+    margin-bottom: 14px;
+    opacity: 0.9;
+  }
+
+  .header-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 900;
+    color: var(--white);
+    letter-spacing: 0.04em;
+    text-shadow: 3px 3px 0 rgba(139,0,0,0.85), 6px 6px 16px rgba(0,0,0,0.9);
+    line-height: 1.1;
+  }
+
+  /* ── COMIC STRIPS ── */
+  .prologue-strips {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 16px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .strip-wrapper {
+    width: 100%;
+    animation: fadeup 0.8s ease both;
+  }
+
+  .strip-wrapper:nth-child(1) { animation-delay: 0.1s; }
+  .strip-wrapper:nth-child(2) { animation-delay: 0.2s; }
+  .strip-wrapper:nth-child(3) { animation-delay: 0.3s; }
+  .strip-wrapper:nth-child(4) { animation-delay: 0.4s; }
+  .strip-wrapper:nth-child(5) { animation-delay: 0.5s; }
+
+  .strip-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @keyframes fadeup {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── FOOTER ── */
+  .page-footer {
+    border-top: 1px solid rgba(139,0,0,0.2);
+    padding: 32px 20px;
+    text-align: center;
+  }
+
+  .footer-text {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--fog);
+  }
+
+  .footer-text a {
+    color: var(--gold);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-text a:hover { color: var(--gold-light); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .top-nav { padding: 14px 20px; }
+    .nav-logo { font-size: 12px; }
+    .page-header { padding: 90px 16px 36px; }
+    .prologue-strips { padding: 0 0 60px; gap: 0; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- TOP NAV -->
+  <nav class="top-nav">
+    <a href="/" class="back-link">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Back
+    </a>
+    <a href="/" class="nav-logo">Crimson Aether</a>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <p class="header-eyebrow">Crimson Aether</p>
+    <h1 class="header-title">Prologue</h1>
+  </header>
+
+  <!-- COMIC STRIPS -->
+  <main class="prologue-strips">
+    <div class="strip-wrapper">
+      <img src="Prologue - Title.JPG" alt="Prologue — Title" loading="eager">
+    </div>
+    <div class="strip-wrapper">
+      <img src="Prologue - Scene 1.jpg" alt="Prologue — Scene 1" loading="lazy">
+    </div>
+    <div class="strip-wrapper">
+      <img src="Prologue - Scene 2.PNG" alt="Prologue — Scene 2" loading="lazy">
+    </div>
+    <div class="strip-wrapper">
+      <img src="Prologue - Scene 3.PNG" alt="Prologue — Scene 3" loading="lazy">
+    </div>
+    <div class="strip-wrapper">
+      <img src="Prologue - Scene 4.jpg" alt="Prologue — Scene 4" loading="lazy">
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="page-footer">
+    <p class="footer-text">
+      Crimson Aether &nbsp;·&nbsp; <a href="https://x.com/finalfAIntasy" target="_blank">@finalfAIntasy</a>
+    </p>
+  </footer>
+
+</body>
+</html>
