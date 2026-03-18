@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Read — Crimson Aether</title>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://crimsonaether.com/read">
+<meta property="og:title" content="Read — Crimson Aether">
+<meta property="og:description" content="Read Crimson Aether — a dark fantasy manga.">
+<meta property="og:image" content="https://crimsonaether.com/crimson-aether-og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@finalfAIntasy">
+<meta name="twitter:title" content="Read — Crimson Aether">
+<meta name="twitter:description" content="Read Crimson Aether — a dark fantasy manga.">
+<meta name="twitter:image" content="https://crimsonaether.com/crimson-aether-og.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --crimson: #8B0000;
+    --crimson-bright: #C41230;
+    --gold: #C9A84C;
+    --gold-light: #F0D080;
+    --black: #080606;
+    --white: #ffffff;
+    --parchment: #f5edd8;
+    --fog: #8a7a72;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--black);
+    color: var(--parchment);
+    font-family: 'EB Garamond', serif;
+    min-height: 100vh;
+  }
+
+  /* ── TOP NAV ── */
+  .top-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 32px;
+    background: rgba(8,6,6,0.95);
+    border-bottom: 1px solid rgba(139,0,0,0.2);
+  }
+
+  .back-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--fog);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--gold); }
+  .back-link svg {
+    width: 14px; height: 14px;
+    stroke: currentColor; fill: none;
+    stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  }
+
+  .nav-logo {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+    text-shadow: 2px 2px 0 rgba(139,0,0,0.8);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── CHAPTER SELECTOR ── */
+  .chapter-selector {
+    padding: 80px 20px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .selector-label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: var(--crimson-bright);
+    opacity: 0.9;
+  }
+
+  .chapter-title-display {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(22px, 4vw, 38px);
+    font-weight: 900;
+    color: var(--white);
+    letter-spacing: 0.04em;
+    text-shadow: 3px 3px 0 rgba(139,0,0,0.85), 6px 6px 16px rgba(0,0,0,0.9);
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  .chapter-divider {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--crimson), transparent);
+    margin: 8px auto 20px;
+  }
+
+  .chapter-dropdown-wrap {
+    position: relative;
+    display: inline-block;
+  }
+
+  .chapter-dropdown {
+    appearance: none;
+    -webkit-appearance: none;
+    background: rgba(8,6,6,0.95);
+    border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold);
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 10px 44px 10px 20px;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s;
+    min-width: 240px;
+    text-align: center;
+  }
+
+  .chapter-dropdown:hover,
+  .chapter-dropdown:focus { border-color: var(--gold); }
+
+  .chapter-dropdown option {
+    background: #0e0a0a;
+    color: var(--parchment);
+    letter-spacing: 0.1em;
+  }
+
+  .dropdown-arrow {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--gold);
+    font-size: 10px;
+  }
+
+  /* ── CHAPTER CONTENT ── */
+  .chapter-content {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .chapter-content img {
+    width: 100%;
+    height: auto;
+    display: block;
+    animation: fadein 0.5s ease both;
+  }
+
+  @keyframes fadein {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── NAV BUTTONS ── */
+  .chapter-nav {
+    max-width: 860px;
+    margin: 48px auto 80px;
+    padding: 0 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--fog);
+    background: transparent;
+    border: 1px solid rgba(139,0,0,0.3);
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+
+  .nav-btn:hover:not(:disabled) {
+    color: var(--gold);
+    border-color: rgba(201,168,76,0.5);
+    background: rgba(201,168,76,0.04);
+  }
+
+  .nav-btn:disabled {
+    opacity: 0.2;
+    cursor: default;
+  }
+
+  .nav-btn svg {
+    width: 14px; height: 14px;
+    stroke: currentColor; fill: none;
+    stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+    flex-shrink: 0;
+  }
+
+  .chapter-indicator {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--fog);
+    opacity: 0.6;
+    text-align: center;
+  }
+
+  /* ── FOOTER ── */
+  .page-footer {
+    border-top: 1px solid rgba(139,0,0,0.2);
+    padding: 32px 20px;
+    text-align: center;
+  }
+
+  .footer-text {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--fog);
+  }
+
+  .footer-text a {
+    color: var(--gold);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-text a:hover { color: var(--gold-light); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .top-nav { padding: 14px 20px; }
+    .nav-logo { font-size: 12px; }
+    .chapter-selector { padding: 76px 16px 24px; }
+    .chapter-content { padding: 0; }
+    .chapter-nav { padding: 0 16px; margin-top: 32px; }
+    .nav-btn { padding: 10px 16px; font-size: 10px; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- TOP NAV -->
+  <nav class="top-nav">
+    <a href="/" class="back-link">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Back
+    </a>
+    <a href="/" class="nav-logo">Crimson Aether</a>
+  </nav>
+
+  <!-- CHAPTER SELECTOR -->
+  <div class="chapter-selector">
+    <p class="selector-label">Crimson Aether</p>
+    <h1 class="chapter-title-display" id="chapterTitle">Prologue</h1>
+    <div class="chapter-divider"></div>
+    <div class="chapter-dropdown-wrap">
+      <select class="chapter-dropdown" id="chapterSelect" onchange="goToChapter(parseInt(this.value))">
+      </select>
+      <span class="dropdown-arrow">▾</span>
+    </div>
+  </div>
+
+  <!-- CHAPTER CONTENT -->
+  <main class="chapter-content" id="chapterContent"></main>
+
+  <!-- PREV / NEXT -->
+  <div class="chapter-nav">
+    <button class="nav-btn" id="prevBtn" onclick="prevChapter()">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Prev
+    </button>
+    <span class="chapter-indicator" id="chapterIndicator"></span>
+    <button class="nav-btn" id="nextBtn" onclick="nextChapter()">
+      Next
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="page-footer">
+    <p class="footer-text">
+      Crimson Aether &nbsp;·&nbsp; <a href="https://x.com/finalfAIntasy" target="_blank">@finalfAIntasy</a>
+    </p>
+  </footer>
+
+<script>
+  // ── CHAPTER DATA ──
+  // To add a new chapter: add an entry to this array.
+  // Each chapter has a title and an array of image filenames.
+  var chapters = [
+    {
+      title: "Prologue",
+      images: [
+        "Prologue - Title.JPG",
+        "Prologue - Scene 1.PNG",
+        "Prologue - Scene 2.jpg",
+        "Prologue - Scene 3.PNG",
+        "Prologue - Scene 4.jpg"
+      ]
+    },
+    {
+      title: "Chapter 1",
+      images: [
+        "Chapter 1 - Scene 0.png",
+        "Chapter 1 - Scene 01.png"
+      ]
+    },
+    {
+      title: "Chapter 2",
+      images: [
+        "Chapter 2 - Scene 1.png",
+        "Chapter 2 - Scene 2.png"
+      ]
+    }
+  ];
+
+  var currentChapter = 0;
+
+  // Build dropdown
+  function buildDropdown() {
+    var select = document.getElementById("chapterSelect");
+    select.innerHTML = "";
+    for (var i = 0; i < chapters.length; i++) {
+      var opt = document.createElement("option");
+      opt.value = i;
+      opt.textContent = (i === 0 ? "Ch. 0 — " : "Ch. " + i + " — ") + chapters[i].title;
+      select.appendChild(opt);
+    }
+  }
+
+  function renderChapter(index) {
+    var chapter = chapters[index];
+    currentChapter = index;
+
+    // Update title
+    document.getElementById("chapterTitle").textContent = chapter.title;
+    document.title = chapter.title + " — Crimson Aether";
+
+    // Update dropdown
+    document.getElementById("chapterSelect").value = index;
+
+    // Update indicator
+    document.getElementById("chapterIndicator").textContent =
+      "Ch. " + index + " of " + (chapters.length - 1);
+
+    // Update prev/next buttons
+    document.getElementById("prevBtn").disabled = index === 0;
+    document.getElementById("nextBtn").disabled = index === chapters.length - 1;
+
+    // Render images
+    var content = document.getElementById("chapterContent");
+    content.innerHTML = "";
+    for (var i = 0; i < chapter.images.length; i++) {
+      var img = document.createElement("img");
+      img.src = chapter.images[i];
+      img.alt = chapter.title + " — Scene " + (i + 1);
+      img.loading = i === 0 ? "eager" : "lazy";
+      img.style.animationDelay = (i * 0.08) + "s";
+      content.appendChild(img);
+    }
+
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function goToChapter(index) {
+    if (index >= 0 && index < chapters.length) {
+      renderChapter(index);
+    }
+  }
+
+  function prevChapter() {
+    if (currentChapter > 0) renderChapter(currentChapter - 1);
+  }
+
+  function nextChapter() {
+    if (currentChapter < chapters.length - 1) renderChapter(currentChapter + 1);
+  }
+
+  // Init
+  buildDropdown();
+  renderChapter(0);
+</script>
+
+</body>
+</html>
