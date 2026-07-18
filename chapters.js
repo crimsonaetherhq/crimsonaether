@@ -241,6 +241,7 @@ window.CA_CHAPTERS = [
       "Chapter 14_9.png",
       "Chapter 14_10.png",
       "Chapter 14_11.png",
+      "Chapter 14_11-2.png",
       "Chapter 14_12.png",
       "Chapter 14_13.png",
       "Chapter 14_14.png",
