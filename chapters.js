@@ -224,6 +224,35 @@ window.CA_CHAPTERS = [
       "Chapter 13_19.png",
       "Chapter 13_20.png"
     ]
+  },
+   {
+    num: 14,
+    slug: "the-ambush",
+    title: "The Ambush",
+    images: [
+      "Chapter 14_1.png",
+      "Chapter 14_2.png",
+      "Chapter 14_3.png",
+      "Chapter 14_4.png",
+      "Chapter 14_5.png",
+      "Chapter 14_6.png",
+      "Chapter 14_7.png",
+      "Chapter 14_8.png",
+      "Chapter 14_9.png",
+      "Chapter 14_10.png",
+      "Chapter 14_11.png",
+      "Chapter 14_12.png",
+      "Chapter 14_13.png",
+      "Chapter 14_14.png",
+      "Chapter 14_15.png",
+      "Chapter 14_16.png",
+      "Chapter 14_17.png",
+      "Chapter 14_18.png",
+      "Chapter 14_19.png",
+      "Chapter 14_20.png",
+      "Chapter 14_21.png",
+      "Chapter 14_22.png"
+    ]
   }
 ];
 
