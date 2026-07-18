@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9QB1611HWM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9QB1611HWM');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0a0708">
+<title>All Chapters | Crimson Aether</title>
+<meta name="description" content="Every chapter of Crimson Aether, a dark fantasy manga — free to read online.">
+<link rel="canonical" href="https://crimsonaether.com/chapters/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://crimsonaether.com/chapters/">
+<meta property="og:title" content="All Chapters | Crimson Aether">
+<meta property="og:description" content="Every chapter of Crimson Aether, a dark fantasy manga — free to read online.">
+<meta property="og:image" content="https://crimsonaether.com/crimson-aether-og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@finalfAIntasy">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  @view-transition { navigation: auto; }
+
+  :root {
+    --ink: #0a0708;
+    --crimson: #8b0000;
+    --blood: #c41230;
+    --gold: #c9a84c;
+    --gold-hi: #e8ce8e;
+    --parchment: #efe4cc;
+    --fog: #8b7a70;
+    --thread: linear-gradient(180deg, var(--crimson), var(--blood) 55%, var(--gold));
+    --thread-h: linear-gradient(90deg, var(--crimson), var(--blood) 55%, var(--gold));
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--ink); color: var(--parchment); font-family: 'EB Garamond', serif; }
+  ::selection { background: rgba(196,18,48,0.55); color: #fff; }
+
+  .top-nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 28px;
+    background: rgba(10,7,8,0.96);
+    border-bottom: 1px solid rgba(139,0,0,0.25);
+  }
+  .back-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--fog); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--gold); }
+  .back-link svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .nav-logo {
+    font-family: 'Cinzel Decorative', serif; font-size: 13px; font-weight: 700;
+    color: #fff; text-decoration: none;
+    text-shadow: 2px 2px 0 rgba(139,0,0,0.8);
+  }
+
+  .page-head { text-align: center; padding: 64px 20px 20px; }
+  .page-eyebrow {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.55em;
+    text-transform: uppercase; color: var(--blood); margin-bottom: 14px;
+  }
+  .page-title {
+    font-family: 'Cinzel Decorative', serif; font-size: clamp(28px, 5vw, 46px);
+    font-weight: 900; color: #fff;
+    text-shadow: 3px 3px 0 rgba(139,0,0,0.85), 6px 6px 18px rgba(0,0,0,0.9);
+  }
+
+  .archive { max-width: 760px; margin: 26px auto 80px; padding: 0 14px; }
+
+  /* ── THE TOME (chapter list) ── */
+  .tome {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 26px 14px 30px;
+  }
+  .tome-tile {
+    position: relative;
+    display: block;
+    height: 138px;
+    margin-bottom: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(201,168,76,0.18);
+    text-decoration: none;
+    isolation: isolate;
+    transition: border-color 0.25s, transform 0.2s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .tome-tile:hover { border-color: rgba(201,168,76,0.65); }
+  .tome-tile:active { transform: scale(0.985); }
+  .tome-tile:focus-visible { outline: 2px solid var(--blood); outline-offset: 3px; }
+
+  .tile-art {
+    position: absolute; inset: 0; z-index: -2;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center 22%;
+    filter: saturate(0.85) contrast(1.02);
+    transition: filter 0.3s, transform 0.6s ease;
+  }
+  .tome-tile:hover .tile-art { filter: saturate(1.05); transform: scale(1.03); }
+  .tile-shade {
+    position: absolute; inset: 0; z-index: -1;
+    background:
+      linear-gradient(90deg, rgba(10,7,8,0.96) 0%, rgba(10,7,8,0.82) 26%, rgba(10,7,8,0.28) 58%, rgba(10,7,8,0.55) 100%),
+      linear-gradient(0deg, rgba(10,7,8,0.75) 0%, rgba(10,7,8,0) 34%);
+  }
+
+  .tile-inner {
+    display: flex; align-items: center; gap: 16px;
+    height: 100%;
+    padding: 0 18px;
+  }
+  .tile-numeral {
+    font-family: 'Cinzel Decorative', serif;
+    font-weight: 900;
+    font-size: 44px;
+    line-height: 1;
+    color: var(--gold);
+    text-shadow: 2px 2px 0 rgba(139,0,0,0.75), 0 0 22px rgba(196,18,48,0.35);
+    min-width: 66px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .tile-numeral.small { font-size: 30px; letter-spacing: 0.02em; }
+  .tile-text { min-width: 0; }
+  .tile-kicker {
+    font-family: 'Cinzel', serif; font-size: 8.5px;
+    letter-spacing: 0.4em; text-transform: uppercase;
+    color: rgba(239,228,204,0.68);
+    margin-bottom: 7px;
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  }
+  .tile-state {
+    font-family: 'Cinzel', serif; font-size: 8.5px;
+    letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--blood);
+  }
+  .tile-state.done { color: var(--gold); }
+  .tile-state.fresh {
+    color: var(--gold-hi);
+    border: 1px solid rgba(232,206,142,0.5);
+    padding: 2px 8px;
+  }
+  .tile-title {
+    display: block;
+    font-family: 'Cinzel Decorative', serif;
+    font-weight: 700;
+    font-size: clamp(17px, 4.6vw, 22px);
+    color: #fff;
+    text-shadow: 2px 2px 0 rgba(139,0,0,0.7), 0 2px 14px rgba(0,0,0,0.9);
+    margin-bottom: 6px;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .tile-meta {
+    display: block;
+    font-size: 13.5px; font-style: italic;
+    color: rgba(239,228,204,0.55);
+  }
+  .tile-go {
+    margin-left: auto;
+    color: rgba(239,228,204,0.5);
+    font-size: 20px;
+    flex-shrink: 0;
+    transition: color 0.2s, transform 0.2s;
+  }
+  .tome-tile:hover .tile-go { color: var(--gold); transform: translateX(3px); }
+
+  .tile-thread {
+    position: absolute; left: 0; bottom: 0; z-index: 1;
+    height: 2.5px; width: 0%;
+    background: var(--thread-h);
+    box-shadow: 0 0 8px rgba(196,18,48,0.7);
+  }
+
+  @media (min-width: 761px) { .tome-tile { height: 152px; } .tile-numeral { font-size: 52px; min-width: 84px; } }
+
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1 !important; transform: none !important; } }
+
+  .page-footer { border-top: 1px solid rgba(139,0,0,0.25); padding: 30px 20px 40px; text-align: center; }
+  .page-footer p { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--fog); }
+  .page-footer a { color: var(--gold); text-decoration: none; }
+
+  
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <a href="/" class="back-link">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    Home
+  </a>
+  <a href="/" class="nav-logo">Crimson Aether</a>
+</nav>
+
+<header class="page-head">
+  <p class="page-eyebrow">The Story So Far</p>
+  <h1 class="page-title">All Chapters</h1>
+</header>
+
+<main class="archive" id="archive"></main>
+
+<footer class="page-footer">
+  <p>Crimson Aether · <a href="https://x.com/finalfAIntasy" target="_blank" rel="noopener">@finalfAIntasy</a></p>
+</footer>
+
+<script src="/chapters.js"></script>
+<script>
+(function () {
+  var wrap = document.getElementById("archive");
+  var lastRead = null;
+  try { lastRead = localStorage.getItem("ca-last-chapter"); } catch (e) {}
+
+  function roman(n) {
+    if (n === 0) return "\u2756";
+    var map = [[10,"X"],[9,"IX"],[5,"V"],[4,"IV"],[1,"I"]], out = "";
+    map.forEach(function (m) { while (n >= m[0]) { out += m[1]; n -= m[0]; } });
+    return out;
+  }
+  window.CA_CHAPTERS.forEach(function (ch, i) {
+    var pos = 0;
+    try { pos = parseInt(localStorage.getItem("ca-pos-" + ch.slug) || "0", 10); } catch (e) {}
+    var isLatest = i === window.CA_CHAPTERS.length - 1;
+    var state = isLatest && pos < 5 ? '<span class="tile-state fresh">New</span>'
+              : pos >= 92 ? '<span class="tile-state done">\u2726 Read</span>'
+              : pos > 4  ? '<span class="tile-state">' + (ch.slug === lastRead ? "Resume \u00b7 " : "") + pos + "%</span>"
+              : "";
+    var bar = pos >= 92 ? 100 : pos > 4 ? pos : 0;
+    var num = roman(ch.num);
+
+    var a = document.createElement("a");
+    a.className = "tome-tile reveal";
+    a.style.transitionDelay = Math.min(i * 40, 280) + "ms";
+    a.href = "/chapter/" + ch.slug + "/";
+    a.innerHTML =
+      '<img class="tile-art" src="' + window.CA_coverOf(ch) + '" alt="" loading="' + (i < 3 ? "eager" : "lazy") + '" decoding="async">' +
+      '<span class="tile-shade"></span>' +
+      '<span class="tile-inner">' +
+        '<span class="tile-numeral' + (num.length > 2 ? " small" : "") + '">' + num + "</span>" +
+        '<span class="tile-text">' +
+          '<span class="tile-kicker">Chapter ' + ch.num + state + "</span>" +
+          '<span class="tile-title">' + ch.title + "</span>" +
+          '<span class="tile-meta">' + ch.images.length + " panels</span>" +
+        "</span>" +
+        '<span class="tile-go">\u203a</span>' +
+      "</span>" +
+      '<span class="tile-thread" style="width:' + bar + '%"></span>';
+    var art = a.querySelector(".tile-art");
+    art.onerror = function () { window.CA_coverFallback(art, ch); };
+    wrap.appendChild(a);
+  });
+
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, { rootMargin: "0px 0px -6% 0px", threshold: 0.05 });
+    document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
+  } else {
+    document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
+  }
+})();
+</script>
+</body>
+</html>
