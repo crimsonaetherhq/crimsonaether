@@ -4,9 +4,11 @@
 
    To add a new chapter:
    1. Upload your panel images to the repo (root folder is fine).
-   2. Add a new block to the END of the list below, following
-      the same pattern. Pick a short "slug" (lowercase, dashes,
-      no spaces) — it becomes the chapter's web address:
+   2. Add a new block in reading order (the list below is the
+      order readers see). Most chapters go at the end. One that
+      belongs between two chapters — like 8.5 — goes between
+      them. Pick a short "slug" (lowercase, dashes, no spaces).
+      It becomes the chapter's web address:
       crimsonaether.com/chapter/YOUR-SLUG/
    3. Create the folder chapter/YOUR-SLUG/ with an index.html
       copied from any other chapter folder — change only the
@@ -160,6 +162,25 @@ window.CA_CHAPTERS = [
     ]
   },
   {
+    /* Adults only. Pages stay hidden until the reader confirms they are 18+. */
+    num: 8.5,
+    slug: "hidden-chapter",
+    title: "Hidden Chapter (NSFW)",
+    adult: true,
+    images: [
+      "Chapter 8.5 - Hidden 1.webp",
+      "Chapter 8.5 - Hidden 2.webp",
+      "Chapter 8.5 - Hidden 3.webp",
+      "Chapter 8.5 - Hidden 4.webp",
+      "Chapter 8.5 - Hidden 5.webp",
+      "Chapter 8.5 - Hidden 6.webp",
+      "Chapter 8.5 - Hidden 7.webp",
+      "Chapter 8.5 - Hidden 8.webp",
+      "Chapter 8.5 - Hidden 9.webp",
+      "Chapter 8.5 - Hidden 10.webp"
+    ]
+  },
+  {
     num: 9,
     slug: "the-long-road",
     title: "The Long Road",
@@ -258,6 +279,14 @@ window.CA_CHAPTERS = [
 ];
 
 /* Helpers shared across pages */
+window.CA_numeral = function (n) {
+  if (n === 0) return "\u2756"; /* prologue mark */
+  /* Half-chapters such as 8.5 stay decimal. Whole chapters stay Roman. */
+  if (n !== Math.floor(n)) return String(n);
+  var map = [[10,"X"],[9,"IX"],[5,"V"],[4,"IV"],[1,"I"]], out = "";
+  map.forEach(function (m) { while (n >= m[0]) { out += m[1]; n -= m[0]; } });
+  return out;
+};
 window.CA_findChapter = function (slug) {
   for (var i = 0; i < window.CA_CHAPTERS.length; i++) {
     if (window.CA_CHAPTERS[i].slug === slug) return { ch: window.CA_CHAPTERS[i], index: i };
@@ -270,5 +299,7 @@ window.CA_coverOf = function (ch) {
 };
 window.CA_coverFallback = function (imgEl, ch) {
   imgEl.onerror = null;
+  /* Adult chapters must not fall back to a panel (those stay behind the gate). */
+  if (ch.adult) return;
   imgEl.src = "/" + encodeURIComponent(ch.images[0]);
 };

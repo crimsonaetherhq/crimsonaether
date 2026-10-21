@@ -298,6 +298,15 @@ a { -webkit-tap-highlight-color: rgba(196,18,48,0.25); }
   color: var(--gold);
   margin-bottom: 8px;
 }
+.next-card .next-age {
+  letter-spacing: 0.14em;
+  font-size: 8px;
+  color: var(--gold-hi);
+  border: 1px solid rgba(201, 168, 76, 0.55);
+  padding: 2px 5px 1px;
+  margin-left: 8px;
+  vertical-align: 1px;
+}
 .next-card .next-title {
   font-family: 'Cinzel Decorative', serif;
   font-size: 20px;
@@ -490,6 +499,92 @@ a { -webkit-tap-highlight-color: rgba(196,18,48,0.25); }
   transition: opacity 0.3s, transform 0.3s;
 }
 .share-toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* ── 18+ GATE (adult chapters only; panels are not mounted until consent) ── */
+html.age-locked { overflow: hidden; }
+.age-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 18px calc(28px + env(safe-area-inset-bottom));
+  background:
+    radial-gradient(ellipse at center, rgba(74, 8, 14, 0.42), rgba(10, 7, 8, 0.97) 68%),
+    var(--ink);
+}
+.age-gate-card {
+  width: min(440px, 100%);
+  text-align: center;
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  background: rgba(18, 12, 13, 0.94);
+  padding: 40px 28px 32px;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.55);
+}
+.age-gate-mark {
+  display: inline-block;
+  margin-bottom: 20px;
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--gold-hi);
+  border: 1px solid rgba(201, 168, 76, 0.55);
+  padding: 6px 10px 5px;
+}
+.age-gate-eyebrow {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 0.48em;
+  text-transform: uppercase;
+  color: var(--blood);
+  margin-bottom: 14px;
+}
+.age-gate-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-weight: 900;
+  font-size: clamp(22px, 5vw, 30px);
+  color: #fff;
+  text-shadow: 2px 2px 0 rgba(139, 0, 0, 0.85);
+  margin-bottom: 16px;
+}
+.age-gate-copy {
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--parchment);
+  margin-bottom: 28px;
+}
+.age-gate-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.age-gate-enter,
+.age-gate-back {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 15px 16px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.age-gate-enter {
+  background: linear-gradient(135deg, #7c0202, var(--blood));
+  color: #ffe9c9;
+  border-color: rgba(201, 168, 76, 0.45);
+  box-shadow: 0 6px 26px rgba(196, 18, 48, 0.35);
+}
+.age-gate-enter:hover { box-shadow: 0 8px 34px rgba(196, 18, 48, 0.55); }
+.age-gate-back {
+  background: transparent;
+  color: var(--gold);
+  border-color: rgba(201, 168, 76, 0.45);
+}
+.age-gate-back:hover { color: var(--gold-hi); border-color: var(--gold); background: rgba(201, 168, 76, 0.06); }
+.age-gate-enter:focus-visible,
+.age-gate-back:focus-visible { outline: 2px solid var(--blood); outline-offset: 3px; }
+.age-gate-enter:disabled { opacity: 0.6; cursor: default; }
 
 /* extra bottom room so the dock never covers the footer */
 @media (max-width: 720px) {
