@@ -283,6 +283,13 @@
     flex-shrink: 0;
   }
   .tile-numeral.small { font-size: 30px; letter-spacing: 0.02em; }
+  .tile-age {
+    position: absolute; top: 10px; right: 10px; z-index: 2;
+    font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.14em;
+    color: var(--gold-hi); background: rgba(10, 7, 8, 0.72);
+    border: 1px solid rgba(201, 168, 76, 0.55);
+    padding: 3px 6px 2px; line-height: 1; pointer-events: none;
+  }
   .tile-text { min-width: 0; }
   .tile-kicker {
     font-family: 'Cinzel', serif; font-size: 8.5px;
@@ -474,10 +481,7 @@
     try { return parseInt(localStorage.getItem("ca-pos-" + slug) || "0", 10); } catch (e) { return 0; }
   }
   function roman(n) {
-    if (n === 0) return "\u2756"; /* prologue mark */
-    var map = [[10,"X"],[9,"IX"],[5,"V"],[4,"IV"],[1,"I"]], out = "";
-    map.forEach(function (m) { while (n >= m[0]) { out += m[1]; n -= m[0]; } });
-    return out;
+    return window.CA_numeral(n);
   }
 
   /* Continue reading button (hero) */
@@ -515,6 +519,7 @@
     a.style.transitionDelay = Math.min(i * 40, 280) + "ms";
     a.href = "/chapter/" + ch.slug + "/";
     a.innerHTML =
+      (ch.adult ? '<span class="tile-age">18+</span>' : '') +
       '<img class="tile-art" src="' + window.CA_coverOf(ch) + '" alt="" loading="' + (i < 3 ? "eager" : "lazy") + '" decoding="async">' +
       '<span class="tile-shade"></span>' +
       '<span class="tile-inner">' +
